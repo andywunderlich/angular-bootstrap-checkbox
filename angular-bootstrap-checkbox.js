@@ -9,7 +9,7 @@ angular.module("ui.checkbox", []).directive("checkbox", function() {
     restrict: "E",
     replace: "true",
     template: "<button type=\"button\" ng-style=\"stylebtn\" class=\"btn btn-default\" ng-class=\"{'btn-xxs btn-checkbox': size==='default', 'btn-sm': size==='large', 'btn-lg': size==='largest'}\">" +
-      "<span ng-style=\"styleicon\" class=\"glyphicon\" ng-class=\"{'glyphicon-ok': checked===true, 'glyphicon-minus': checked===0}\"></span>" +
+      "<span class=\"glyphicon btn-checkbox-icon\" ng-class=\"{'glyphicon-ok': checked===true, 'glyphicon-minus': checked===0}\"></span>" +
       "</button>",
     link: function(scope, elem, attrs, modelCtrl) {
       // Default state
@@ -19,22 +19,22 @@ angular.module("ui.checkbox", []).directive("checkbox", function() {
       // Default Button Styling
       scope.stylebtn = {};
       // Default Checkmark Styling
-      scope.styleicon = {"width": "10px", "left": "-1px"};
+      scope.styleicon = {};
       // If size is undefined, Checkbox has normal size (Bootstrap 'xs')
       if(attrs.large !== undefined) {
         scope.size = "large";
-        scope.stylebtn = {"padding-top": "2px", "padding-bottom": "2px", "height": "30px"};
-        scope.styleicon = {"width": "8px", "left": "-5px", "font-size": "17px"};
+        /*scope.stylebtn = {"padding-top": "2px", "padding-bottom": "2px", "height": "30px"};
+         scope.styleicon = {"width": "8px", "left": "-5px", "font-size": "17px"};*/
       }
       if(attrs.larger !== undefined) {
         scope.size = "larger";
-        scope.stylebtn = {"padding-top": "2px", "padding-bottom": "2px", "height": "34px"};
-        scope.styleicon = {"width": "8px", "left": "-8px", "font-size": "22px"};
+        /*scope.stylebtn = {"padding-top": "2px", "padding-bottom": "2px", "height": "34px"};
+         scope.styleicon = {"width": "8px", "left": "-8px", "font-size": "22px"};*/
       }
       if(attrs.largest !== undefined) {
         scope.size = "largest";
-        scope.stylebtn = {"padding-top": "2px", "padding-bottom": "2px", "height": "45px"};
-        scope.styleicon = {"width": "11px", "left": "-11px", "font-size": "30px"};
+        /*scope.stylebtn = {"padding-top": "2px", "padding-bottom": "2px", "height": "45px"};
+         scope.styleicon = {"width": "11px", "left": "-11px", "font-size": "30px"};*/
       }
 
       var trueValue = true;
@@ -72,6 +72,9 @@ angular.module("ui.checkbox", []).directive("checkbox", function() {
 
       // On click swap value and trigger onChange function
       elem.bind("click", function() {
+        if (!_.isUndefined(attrs.preventClick)) {
+          return;
+        }
         scope.$apply(function() {
           if (scope.triState) {
             modelCtrl.$setViewValue(triState[''+modelCtrl.$modelValue]);
