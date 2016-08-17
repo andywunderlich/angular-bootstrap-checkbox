@@ -1,0 +1,33 @@
+{
+  "name": "angular-bootstrap-checkbox",
+  "version": "0.4.0",
+  "description": "A Twitter Bootstrap styled checkbox with tri-state option to use with AngularJS",
+  "main": "angular-bootstrap-checkbox.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Everworks/angular-bootstrap-checkbox.git"
+  },
+  "keywords": [
+    "angular",
+    "angularjs",
+    "bootstrap",
+    "checkbox",
+    "input"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Everworks/angular-bootstrap-checkbox/issues"
+  },
+  "homepage": "https://github.com/Everworks/angular-bootstrap-checkbox#readme",
+  "dependencies": {
+    "angular": "^1.2.0",
+    "bootstrap": "^3.0.0"
+  },
+  "devDependencies": {
+    "angular-scenario": "^1.2.0"
+  }
+}
