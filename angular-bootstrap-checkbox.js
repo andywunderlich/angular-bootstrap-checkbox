@@ -9,7 +9,7 @@ angular.module("ui.checkbox", []).directive("checkbox", function() {
     restrict: "E",
     replace: "true",
     template: "<button type=\"button\" ng-style=\"stylebtn\" class=\"btn btn-default\" ng-class=\"{'btn-xxs btn-checkbox': size==='default', 'btn-sm': size==='large', 'btn-lg': size==='largest'}\">" +
-      "<span class=\"glyphicon btn-checkbox-icon\" ng-class=\"{'glyphicon-ok': checked===true, 'glyphicon-minus': checked===0}\"></span>" +
+      "<span class=\"fa btn-checkbox-icon\" ng-class=\"{'fa-check': checked===true, 'fa-minus': checked===0}\"></span>" +
       "</button>",
     link: function(scope, elem, attrs, modelCtrl) {
       // Default state
