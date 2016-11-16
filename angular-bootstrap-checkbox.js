@@ -8,9 +8,9 @@ angular.module("ui.checkbox", []).directive("checkbox", function() {
     require: "ngModel",
     restrict: "E",
     replace: "true",
-    template: "<button type=\"button\" ng-style=\"stylebtn\" class=\"btn btn-default\" ng-class=\"{'btn-xxs btn-checkbox': size==='default', 'btn-sm': size==='large', 'btn-lg': size==='largest'}\">" +
-      "<span class=\"glyphicon btn-checkbox-icon\" ng-class=\"{'glyphicon-ok': checked===true, 'glyphicon-minus': checked===0}\"></span>" +
-      "</button>",
+    template: "<button type=\"button\" ng-style=\"stylebtn\" class=\"btn btn-default\" ng-class=\"{'btn-xs': size==='default', 'btn-sm': size==='large', 'btn-lg': size==='largest', 'checked': checked===true}\">" +
+			"<span ng-style=\"styleicon\" class=\"fa\" ng-class=\"{'fa-check': checked===true, 'fa-minus': checked===undefined}\"></span>" +
+			"</button>",
     link: function(scope, elem, attrs, modelCtrl) {
       // Default state
       scope.checked = false;
@@ -19,7 +19,8 @@ angular.module("ui.checkbox", []).directive("checkbox", function() {
       // Default Button Styling
       scope.stylebtn = {};
       // Default Checkmark Styling
-      scope.styleicon = {};
+      scope.styleicon = {"width": "10px", "left": "-1px"};
+
       // If size is undefined, Checkbox has normal size (Bootstrap 'xs')
       if(attrs.large !== undefined) {
         scope.size = "large";
